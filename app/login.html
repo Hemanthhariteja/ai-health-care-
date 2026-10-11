@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthFlow Login">
+    <title>HealthFlow - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <button class="back-btn" onclick="location.href='index.html'" aria-label="Go Back">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="card">
+            <div class="mode-switch">
+                <button class="mode-btn" id="loginBtn">Login</button>
+                <button class="mode-btn active" id="signupBtn">Sign Up</button>
+            </div>
+
+            <div class="user-type-toggle">
+                <button class="user-type-btn active" id="patientBtn">
+                    <svg class="checkmark" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.6667 5L7.5 14.1667L3.33333 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Patient</span>
+                </button>
+                <button class="user-type-btn" id="doctorBtn">
+                    <span>Doctor</span>
+                </button>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#B0BEC5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="#B0BEC5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input type="email" id="emailInput" placeholder="Email Address" required aria-label="Email Address">
+                    </div>
+                    <span class="error-message" id="emailError">✓ Please enter a valid email.</span>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="11" width="14" height="10" rx="2" stroke="#B0BEC5" stroke-width="2"/>
+                            <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="#B0BEC5" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <input type="password" id="passwordInput" placeholder="Password" required aria-label="Password">
+                    </div>
+                </div>
+
+                <a href="#" class="forgot-password">Forgot Password?</a>
+
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Benefits Section -->
+        <div class="signup-section" id="signupSection">
+            <div class="signup-content">
+                <h2 class="signup-title">New to HealthFlow?</h2>
+                <p class="signup-description">Create an account to access all features</p>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Book appointments with top doctors</span>
+                    </div>
+                    <div class="benefit-item">
+                        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>24/7 AI health assistant</span>
+                    </div>
+                    <div class="benefit-item">
+                        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Secure medical records storage</span>
+                    </div>
+                    <div class="benefit-item">
+                        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Personalized health reminders</span>
+                    </div>
+                </div>
+
+                <button class="signup-cta-btn" id="scrollToSignup">
+                    Get Started
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

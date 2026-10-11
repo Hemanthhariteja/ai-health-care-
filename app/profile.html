@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profile Settings">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="window.history.back()">
+                <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="header-title">Profile</h1>
+        </header>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar-wrapper">
+                    <div class="avatar" id="avatarContainer">
+                        <img class="avatar-image" id="avatarImage" style="display: none;" alt="Profile Picture">
+                        <svg class="avatar-icon" id="avatarIcon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="24" r="12" fill="#5D9CAE"/>
+                            <path d="M12 52C12 42 20 36 32 36C44 36 52 42 52 52" fill="#5D9CAE"/>
+                        </svg>
+                    </div>
+                    <button class="avatar-upload-btn" id="uploadAvatarBtn" aria-label="Upload Profile Picture">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="13" r="4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name" id="profileName">Loading...</h2>
+                    <p class="profile-id">Patient ID: <span id="patientId">---</span></p>
+                </div>
+            </div>
+        </div>
+
+        <section class="settings-section">
+            <h3 class="section-title">General</h3>
+
+            <div class="settings-items">
+                <a href="settings.html" class="settings-item" style="text-decoration: none; color: inherit; cursor: pointer;">
+                    <div class="item-left">
+                        <div class="item-icon language-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                                <path d="M2 12H22M12 2C14.5 4.5 16 8 16 12C16 16 14.5 19.5 12 22M12 2C9.5 4.5 8 8 8 12C8 16 9.5 19.5 12 22" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="item-label">Language & Settings</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
+                        <path d="M9 6L15 12L9 18" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a href="accessibility-settings.html" class="settings-item" style="text-decoration: none; color: inherit; cursor: pointer;">
+                    <div class="item-left">
+                        <div class="item-icon accessibility-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="7" r="2" stroke="white" stroke-width="2"/>
+                                <path d="M7 11H17M12 11V20M9 20H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span class="item-label">Accessibility Settings</span>
+                    </div>
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
+                        <path d="M9 6L15 12L9 18" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h3 class="section-title">Privacy & Data</h3>
+
+            <div class="settings-items">
+                <div class="settings-item">
+                    <div class="item-left">
+                        <div class="item-icon privacy-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L4 6V11C4 16.5 7.5 21.5 12 23C16.5 21.5 20 16.5 20 11V6L12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="item-label">Data Privacy Controls</span>
+                    </div>
+                    <div class="toggle-switch" id="privacyToggle">
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+
+                <div class="settings-item delete-item">
+                    <div class="item-left">
+                        <div class="item-icon delete-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 6H21M8 6V4C8 3 9 2 10 2H14C15 2 16 3 16 4V6M19 6V20C19 21 18 22 17 22H7C6 22 5 21 5 20V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 11V17M14 11V17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="item-label delete-label">Delete My Data</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 21 20 22 19 22H5C4 22 3 21 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Home</span>
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="2"/>
+                    <path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Profile</span>
+            </a>
+
+            <a href="activity.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Activity</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 1V4M12 20V23M4.22 4.22L6.34 6.34M17.66 17.66L19.78 19.78M1 12H4M20 12H23M4.22 19.78L6.34 17.66M17.66 6.34L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <div class="delete-modal" id="deleteModal">
+            <div class="modal-content">
+                <h2 class="modal-title">Delete all your data?</h2>
+                <p class="modal-description">This action cannot be undone. All your health records, chat history, and personal information will be permanently deleted.</p>
+                
+                <div class="modal-buttons">
+                    <button class="modal-btn cancel-btn" id="cancelDeleteBtn">Cancel</button>
+                    <button class="modal-btn confirm-btn" id="confirmDeleteBtn">Delete Everything</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>

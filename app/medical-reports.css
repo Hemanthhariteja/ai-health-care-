@@ -1,0 +1,369 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(180deg, #D8B8E8 0%, #B8D5E8 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 20px;
+}
+
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    gap: 12px;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #D8B8E8 0%, #C8A8D8 100%);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.back-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: #FFFFFF;
+}
+
+.back-btn:hover {
+    background: #f5f5f5;
+    transform: translateX(-4px);
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2C5571;
+    letter-spacing: -0.3px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    display: inline-block;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E0E8EC;
+    transition: 0.3s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #7AB39D;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+.lang-selector {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border: 2px solid #E0E8EC;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-selector:hover {
+    border-color: #7AB39D;
+    transform: translateY(-1px);
+}
+
+.globe-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.upload-section {
+    margin-bottom: 32px;
+}
+
+.upload-area {
+    background: white;
+    border: 3px dashed #B8D5E5;
+    border-radius: 24px;
+    padding: 48px 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: #7AB39D;
+    background: #F8FBFC;
+}
+
+.upload-area.dragover {
+    border-color: #7AB39D;
+    background: #F0F8F5;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+}
+
+.upload-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: #2C5571;
+    margin-bottom: 8px;
+}
+
+.upload-formats {
+    font-size: 14px;
+    color: #7A9AA8;
+}
+
+.progress-bar {
+    margin-top: 20px;
+    height: 8px;
+    background: #E8EDEF;
+    border-radius: 8px;
+    overflow: hidden;
+    display: none;
+}
+
+.progress-bar.visible {
+    display: block;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7AB39D 0%, #5D9CAE 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 8px;
+}
+
+.processing-text {
+    text-align: center;
+    color: #7A9AA8;
+    font-size: 15px;
+    margin-top: 12px;
+    display: none;
+}
+
+.processing-text.visible {
+    display: block;
+}
+
+.results-section {
+    margin-bottom: 24px;
+}
+
+.results-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2C5571;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.summary-card {
+    border: 2px solid #D5E8D8;
+}
+
+.details-card {
+    border: 2px solid #D5E5F0;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.check-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2C5571;
+}
+
+.details-title {
+    color: #5D9CAE;
+}
+
+.card-content {
+    padding-left: 40px;
+}
+
+.status-text {
+    font-size: 16px;
+    color: #2C5571;
+    margin-bottom: 12px;
+}
+
+.status-text strong {
+    color: #6B9F7F;
+    font-weight: 600;
+}
+
+.summary-list {
+    list-style: none;
+    padding: 0;
+}
+
+.summary-list li {
+    font-size: 15px;
+    color: #5A7686;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.summary-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6B9F7F;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.detail-item {
+    margin-bottom: 16px;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-size: 16px;
+    color: #2C5571;
+    margin-bottom: 4px;
+}
+
+.detail-label strong {
+    font-weight: 600;
+}
+
+.detail-range {
+    font-size: 14px;
+    color: #7A9AA8;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: #7A9AA8;
+    line-height: 1.4;
+    padding: 0 20px;
+}
+
+@media (min-width: 600px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-content {
+        padding-left: 0;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 22px;
+    }
+
+    .upload-area {
+        padding: 36px 24px;
+    }
+
+    .upload-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .result-card {
+        padding: 20px;
+    }
+
+    .card-content {
+        padding-left: 0;
+        margin-top: 12px;
+    }
+}

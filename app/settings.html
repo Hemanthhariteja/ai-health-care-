@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Settings">
+    <title>Settings - HealthFlow</title>
+    <link rel="stylesheet" href="settings.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="window.history.back()" aria-label="Go back">
+                <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="header-title" data-i18n="settings">Settings</h1>
+        </header>
+
+        <div class="settings-list">
+            <div class="settings-item" id="languageSettings">
+                <div class="item-icon language-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                        <path d="M2 12H22M12 2C14.5 4.5 16 8 16 12C16 16 14.5 19.5 12 22M12 2C9.5 4.5 8 8 8 12C8 16 9.5 19.5 12 22" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label" data-i18n="language">Language</span>
+                    <span class="item-value" id="currentLanguage">English</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="settings-item" id="accessibilitySettings">
+                <div class="item-icon accessibility-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="7" r="2" stroke="white" stroke-width="2"/>
+                        <path d="M7 11H17M12 11V20M9 20H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label" data-i18n="accessibility">Accessibility</span>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="accessibilityToggle" class="toggle-input" checked>
+                    <label for="accessibilityToggle" class="toggle-label"></label>
+                </div>
+            </div>
+
+            <div class="settings-item" id="notificationsSettings">
+                <div class="item-icon notifications-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label">Notifications</span>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="notificationsToggle" class="toggle-input" checked>
+                    <label for="notificationsToggle" class="toggle-label"></label>
+                </div>
+            </div>
+
+            <div class="settings-item" id="aboutSettings">
+                <div class="item-icon about-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                        <path d="M12 16V12M12 8H12.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label">About App</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 21 20 22 19 22H5C4 22 3 21 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Home</span>
+            </a>
+
+            <a href="features.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Features</span>
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="2"/>
+                    <path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 1V4M12 20V23M4.22 4.22L6.34 6.34M17.66 17.66L19.78 19.78M1 12H4M20 12H23M4.22 19.78L6.34 17.66M17.66 6.34L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+
+        <!-- Language Modal -->
+        <div class="modal" id="languageModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Select Language</h2>
+                    <button class="modal-close" id="closeLanguageModal" aria-label="Close">&times;</button>
+                </div>
+                <div class="language-list">
+                    <div class="language-option" data-lang="en">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        <span class="lang-name">Español</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="fr">
+                        <span class="lang-flag">🇫🇷</span>
+                        <span class="lang-name">Français</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="de">
+                        <span class="lang-flag">🇩🇪</span>
+                        <span class="lang-name">Deutsch</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="it">
+                        <span class="lang-flag">🇮🇹</span>
+                        <span class="lang-name">Italiano</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="pt">
+                        <span class="lang-flag">🇵🇹</span>
+                        <span class="lang-name">Português</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="zh">
+                        <span class="lang-flag">🇨🇳</span>
+                        <span class="lang-name">中文</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="ja">
+                        <span class="lang-flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="ko">
+                        <span class="lang-flag">🇰🇷</span>
+                        <span class="lang-name">한국어</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="ar">
+                        <span class="lang-flag">🇸🇦</span>
+                        <span class="lang-name">العربية</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="hi">
+                        <span class="lang-flag">🇮🇳</span>
+                        <span class="lang-name">हिन्दी</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                    <div class="language-option" data-lang="ru">
+                        <span class="lang-flag">🇷🇺</span>
+                        <span class="lang-name">Русский</span>
+                        <span class="check-icon">✓</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Modal -->
+        <div class="modal" id="aboutModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">About App</h2>
+                    <button class="modal-close" id="closeAboutModal" aria-label="Close">&times;</button>
+                </div>
+                <div class="about-content">
+                    <div class="app-logo">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 8C18.745 8 8 18.745 8 32C8 45.255 18.745 56 32 56C45.255 56 56 45.255 56 32C56 18.745 45.255 8 32 8Z" stroke="#4A7C8F" stroke-width="2"/>
+                            <path d="M32 20V32L38 38" stroke="#4A7C8F" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 28C24 28 26 26 28 26C30 26 32 28 32 28C32 28 34 26 36 26C38 26 40 28 40 28" stroke="#6B9F7F" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="app-name">HealthFlow</h3>
+                    <p class="app-version">Version 1.0.0</p>
+                    <p class="app-description">Your comprehensive healthcare companion designed to simplify and support your health journey with AI-powered assistance, personalized guidance, and secure medical records management.</p>
+                    <div class="about-links">
+                        <a href="#" class="about-link">Privacy Policy</a>
+                        <a href="#" class="about-link">Terms of Service</a>
+                        <a href="#" class="about-link">Contact Support</a>
+                    </div>
+                    <p class="copyright">© 2024 HealthFlow. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

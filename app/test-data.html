@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test LocalStorage Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2C5571;
+            margin-bottom: 20px;
+        }
+        button {
+            background: #5D9CAE;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #4A8399;
+        }
+        button.danger {
+            background: #EF4444;
+        }
+        button.danger:hover {
+            background: #DC2626;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #5D9CAE;
+            background: #f9fafb;
+        }
+        .label {
+            font-weight: bold;
+            color: #2C5571;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 LocalStorage Data Viewer</h1>
+        
+        <div style="margin-bottom: 20px;">
+            <button onclick="loadData()">🔄 Refresh Data</button>
+            <button onclick="location.href='index.html'">🏠 Go to Index</button>
+            <button onclick="location.href='home.html'">🏥 Go to Home</button>
+            <button class="danger" onclick="clearAllData()">🗑️ Clear All Data</button>
+        </div>
+
+        <div class="section">
+            <div class="label">Current User Data:</div>
+            <pre id="userData">Loading...</pre>
+        </div>
+
+        <div class="section">
+            <div class="label">Login Status:</div>
+            <pre id="loginStatus">Loading...</pre>
+        </div>
+
+        <div class="section">
+            <div class="label">Registered Users:</div>
+            <pre id="registeredUsers">Loading...</pre>
+        </div>
+
+        <div class="section">
+            <div class="label">All LocalStorage Keys:</div>
+            <pre id="allKeys">Loading...</pre>
+        </div>
+    </div>
+
+    <script>
+        function loadData() {
+            // Current User
+            const currentUser = localStorage.getItem('currentUser');
+            document.getElementById('userData').textContent = currentUser 
+                ? JSON.stringify(JSON.parse(currentUser), null, 2)
+                : 'No user data found';
+
+            // Login Status
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            document.getElementById('loginStatus').textContent = isLoggedIn 
+                ? `Logged In: ${isLoggedIn}`
+                : 'Not logged in';
+
+            // Registered Users
+            const registeredUsers = localStorage.getItem('registeredUsers');
+            document.getElementById('registeredUsers').textContent = registeredUsers
+                ? JSON.stringify(JSON.parse(registeredUsers), null, 2)
+                : 'No registered users';
+
+            // All Keys
+            const allKeys = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                allKeys.push(`${key}: ${localStorage.getItem(key).substring(0, 100)}...`);
+            }
+            document.getElementById('allKeys').textContent = allKeys.length > 0 
+                ? allKeys.join('\n\n')
+                : 'No keys found';
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear ALL localStorage data? This will log you out and delete all saved information.')) {
+                localStorage.clear();
+                alert('All data cleared! Please sign up again.');
+                loadData();
+            }
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

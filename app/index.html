@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthFlow - Your health, simplified and supported">
+    <title>HealthFlow - Welcome</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img class="logo-icon" src="a1efe0c7-9ce6-4a53-8588-d074b0995543-removebg-preview.png" alt="HealthFlow Logo">
+            <h1 class="logo-text">Medi - Connect</h1>
+        </div>
+
+        <h2 class="tagline" data-i18n="tagline">Your health, simplified<br>and supported.</h2>
+        <p class="subtitle" data-i18n="subtitle">Access quality healthcare when you need it, where you need it.</p>
+
+        <div class="language-selector">
+            <select class="lang-select" id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="hi">हिन्दी (Hindi)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="mr">मराठी (Marathi)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+            </select>
+        </div>
+
+        <div class="accessibility-options">
+            <button class="accessibility-btn" id="voiceAssistBtn" aria-label="Voice Assist">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1Z" stroke="white" stroke-width="2"/>
+                    <path d="M19 10V12C19 15.866 15.866 19 12 19M5 10V12C5 15.866 8.13401 19 12 19M12 19V23M8 23H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="label" data-i18n="voiceAssist">Voice Assist</span>
+            </button>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-login" id="openLoginBtn" data-i18n="login">Login</button>
+            <button class="btn btn-register" id="openRegisterBtn" data-i18n="register">Register</button>
+        </div>
+
+        <p class="footer-text">Committed to your privacy and ethical care</p>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="loginTab">Login</button>
+                <button class="tab-btn" id="signupTab">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-container active" id="loginForm">
+                <div class="user-type-toggle">
+                    <button class="user-type-btn active" data-type="patient">
+                        <div class="radio-circle"></div>
+                        <span>Patient</span>
+                    </button>
+                    <button class="user-type-btn" data-type="doctor">
+                        <div class="radio-circle"></div>
+                        <span>Doctor</span>
+                    </button>
+                </div>
+
+                <form class="auth-form" id="loginFormData">
+                    <div class="input-group">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#94A3B8" stroke-width="2"/>
+                            <path d="M22 6L12 13L2 6" stroke="#94A3B8" stroke-width="2"/>
+                        </svg>
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" stroke="#94A3B8" stroke-width="2"/>
+                            <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="#94A3B8" stroke-width="2"/>
+                        </svg>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <button type="button" class="toggle-password">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z" stroke="#94A3B8" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="3" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <a href="#" class="forgot-link">Forgot password?</a>
+
+                    <button type="submit" class="submit-btn">Sign In</button>
+
+                    <div class="contact-methods">
+                        <button type="button" class="method-btn active">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Email
+                        </button>
+                        <button type="button" class="method-btn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 18H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            Mobile
+                        </button>
+                    </div>
+
+                    <p class="switch-text">Don't have an account? <button type="button" class="switch-btn" id="switchToSignup">Sign Up</button></p>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form-container" id="signupForm">
+                <div class="user-type-toggle">
+                    <button class="user-type-btn active" data-type="patient">
+                        <div class="radio-circle"></div>
+                        <span>Patient</span>
+                    </button>
+                    <button class="user-type-btn" data-type="doctor">
+                        <div class="radio-circle"></div>
+                        <span>Doctor</span>
+                    </button>
+                </div>
+
+                <form class="auth-form multi-step" id="signupFormData">
+                    <!-- Step Indicator -->
+                    <div class="step-indicator">
+                        <div class="step-dot active" data-step="1">
+                            <span class="step-number">1</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step-dot" data-step="2">
+                            <span class="step-number">2</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step-dot" data-step="3">
+                            <span class="step-number">3</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">PERSONAL INFORMATION</h3>
+                        
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#94A3B8" stroke-width="2"/>
+                                <circle cx="12" cy="7" r="4" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="fullName" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#94A3B8" stroke-width="2"/>
+                                <path d="M22 6L12 13L2 6" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="email" id="signupEmail" placeholder="Email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92V19.92C22 20.4696 21.5304 20.9392 20.9808 20.9392C10.3984 20.4296 2.56 12.5912 2.05041 1.99677C2.03126 1.44733 2.49165 0.978516 3.04109 0.978516H6.01092C6.56036 0.978516 7.01092 1.42908 7.02075 1.97852C7.11073 3.92809 7.5 5.80787 8.13963 7.56774C8.26961 7.92763 8.15963 8.33751 7.85971 8.57743L6.10984 10.0073C7.57971 13.3569 10.6199 16.397 13.9695 17.8669L15.3993 16.117C15.6393 15.8171 16.0591 15.7071 16.409 15.8371C18.1689 16.4767 20.0487 16.8659 22.0082 16.9659C22.5577 16.9759 23.0082 17.4264 23.0082 17.976L22 16.92Z" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label-top">Date of Birth</label>
+                            <input type="text" id="dob" placeholder="dd-mm-yyyy" required>
+                        </div>
+
+                        <div class="input-group">
+                            <select id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="next-btn" data-next="2">Next</button>
+                    </div>
+
+                    <!-- Step 2: Health Information -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">HEALTH INFORMATION</h3>
+                        
+                        <div class="input-group">
+                            <label class="input-label-top">Blood Type</label>
+                            <select id="bloodType" required>
+                                <option value="">Select Blood Type</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label-top">Height (cm)</label>
+                            <input type="number" id="height" placeholder="e.g., 170" min="0" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label-top">Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="e.g., 70" min="0" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label-top">Allergies (if any)</label>
+                            <input type="text" id="allergies" placeholder="e.g., Penicillin, Peanuts">
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label-top">Medical Conditions / Medications</label>
+                            <textarea id="medicalConditions" rows="3" placeholder="List any chronic conditions, ongoing medications, or surgeries (optional)"></textarea>
+                        </div>
+
+                        <div class="step-buttons">
+                            <button type="button" class="back-btn-form" data-back="1">Back</button>
+                            <button type="button" class="next-btn" data-next="3">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Emergency Contact -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">EMERGENCY CONTACT</h3>
+                        
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="#94A3B8" stroke-width="2"/>
+                                <circle cx="12" cy="7" r="4" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="text" id="emergencyName" placeholder="Emergency Contact Name" required>
+                        </div>
+
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92V19.92C22 20.4696 21.5304 20.9392 20.9808 20.9392C10.3984 20.4296 2.56 12.5912 2.05041 1.99677C2.03126 1.44733 2.49165 0.978516 3.04109 0.978516H6.01092C6.56036 0.978516 7.01092 1.42908 7.02075 1.97852C7.11073 3.92809 7.5 5.80787 8.13963 7.56774C8.26961 7.92763 8.15963 8.33751 7.85971 8.57743L6.10984 10.0073C7.57971 13.3569 10.6199 16.397 13.9695 17.8669L15.3993 16.117C15.6393 15.8171 16.0591 15.7071 16.409 15.8371C18.1689 16.4767 20.0487 16.8659 22.0082 16.9659C22.5577 16.9759 23.0082 17.4264 23.0082 17.976L22 16.92Z" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="tel" id="emergencyPhone" placeholder="Emergency Contact Phone" required>
+                        </div>
+
+                        <h3 class="step-title">SECURITY</h3>
+
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="11" width="18" height="11" rx="2" stroke="#94A3B8" stroke-width="2"/>
+                                <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="password" id="signupPassword" placeholder="Password" required minlength="6">
+                            <button type="button" class="toggle-password">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z" stroke="#94A3B8" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="#94A3B8" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="input-group">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="11" width="18" height="11" rx="2" stroke="#94A3B8" stroke-width="2"/>
+                                <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="#94A3B8" stroke-width="2"/>
+                            </svg>
+                            <input type="password" id="confirmPassword" placeholder="Password" required minlength="6">
+                            <button type="button" class="toggle-password">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 12S5 4 12 4s11 8 11 8-4 8-11 8S1 12 1 12z" stroke="#94A3B8" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="#94A3B8" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <label for="agreeTerms">I agree to the Terms of Service and Privacy Policy</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Create Account</button>
+
+                        <p class="switch-link-text"><button type="button" class="switch-link-btn" id="switchToLogin">Sign in</button></p>
+
+                        <div class="contact-methods">
+                            <button type="button" class="method-btn active">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Email
+                            </button>
+                            <button type="button" class="method-btn">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 18H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                Mobile
+                            </button>
+                        </div>
+
+                        <p class="switch-text">Already have an account? <button type="button" class="switch-btn" id="switchToLogin2">Sign in</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+               
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

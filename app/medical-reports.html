@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medical Reports">
+    <title>Medical Reports</title>
+    <link rel="stylesheet" href="medical-reports.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="history.back()" aria-label="Go Back">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="page-title">Medical Reports</h1>
+            <div class="header-actions">
+                <label class="toggle-switch" aria-label="Dark mode toggle">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+                <button class="lang-selector" id="langSelector" aria-label="Language">
+                    <svg class="globe-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#5D9CAE" stroke-width="2"/>
+                        <path d="M2 12H22M12 2C14.5 4.5 16 8 16 12C16 16 14.5 19.5 12 22M12 2C9.5 4.5 8 8 8 12C8 16 9.5 19.5 12 22" stroke="#5D9CAE" stroke-width="2"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 44V20M32 20L24 28M32 20L40 28" stroke="#7AB39D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 36C14 36 10 32 10 26C10 20 14 16 20 16C20 10 26 4 32 4C38 4 44 10 44 16C50 16 54 20 54 26C54 32 50 36 44 36" stroke="#7AB39D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="upload-text">Drag & drop files or click to upload</p>
+                <p class="upload-formats">Supported formats: PDF, JPEG, PNG</p>
+                <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" hidden>
+            </div>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="processing-text" id="processingText">Processing your report...</p>
+        </div>
+
+        <div class="results-section">
+            <h2 class="results-title">Results</h2>
+            
+            <div class="results-grid">
+                <div class="result-card summary-card">
+                    <div class="card-header">
+                        <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#6B9F7F"/>
+                            <path d="M8 12L11 15L16 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3 class="card-title">Simplified Summary</h3>
+                    </div>
+                    <div class="card-content">
+                        <p class="status-text">Report Status: <strong>Normal</strong></p>
+                        <ul class="summary-list">
+                            <li>Your lab results are within normal ranges</li>
+                            <li>No critical concerns detected.</li>
+                            <li>Recommended: Follow up with od doctor annually</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="result-card details-card">
+                    <div class="card-header">
+                        <h3 class="card-title details-title">Detailed Explanation</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="detail-item">
+                            <p class="detail-label">Hemobheim: <strong>14.5 g/dL</strong></p>
+                            <p class="detail-range">Normal range: 12-16</p>
+                        </div>
+                        <div class="detail-item">
+                            <p class="detail-label">Glucose: <strong>90 mg g/dL</strong></p>
+                            <p class="detail-range">Normal range: 70-100</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="disclaimer">This tool provides simplified information and not a substitute a professional medical advice.</p>
+    </div>
+
+    <script src="medical-reports.js"></script>
+</body>
+</html>

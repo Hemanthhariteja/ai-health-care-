@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessibility Settings">
+    <title>Accessibility Settings - HealthFlow</title>
+    <link rel="stylesheet" href="accessibility-settings.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="window.location.href='settings.html'" aria-label="Go back">
+                <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="header-title" data-i18n="accessibility">Accessibility Settings</h1>
+        </header>
+
+        <div class="settings-list">
+            <!-- Text Size -->
+            <div class="settings-item text-size-item">
+                <div class="item-icon text-size-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="6" y="18" font-family="Arial" font-size="14" font-weight="bold" fill="white">Aa</text>
+                    </svg>
+                </div>
+                <div class="item-content-full">
+                    <span class="item-label" data-i18n="textSize">Text Size</span>
+                    <div class="slider-container">
+                        <span class="slider-label" data-i18n="small">Small</span>
+                        <input type="range" id="textSizeSlider" min="1" max="3" value="2" class="slider">
+                        <span class="slider-label" data-i18n="large">Large</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contrast -->
+            <div class="settings-item">
+                <div class="item-icon contrast-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                        <path d="M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22V2Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label" data-i18n="highContrast">Contrast</span>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="contrastToggle" class="toggle-input" checked>
+                    <label for="contrastToggle" class="toggle-label"></label>
+                </div>
+            </div>
+
+            <!-- Voice Assistance -->
+            <div class="settings-item">
+                <div class="item-icon voice-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1C10.34 1 9 2.34 9 4V12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12V4C15 2.34 13.66 1 12 1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19 10V12C19 15.866 15.866 19 12 19C8.134 19 5 15.866 5 12V10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19V23M8 23H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label">Voice Assistance</span>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="voiceToggle" class="toggle-input">
+                    <label for="voiceToggle" class="toggle-label"></label>
+                </div>
+            </div>
+
+            <!-- Reduced Animations -->
+            <div class="settings-item">
+                <div class="item-icon animations-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="3" stroke="white" stroke-width="2"/>
+                        <path d="M12 11V17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 14L12 17L16 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 20H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="item-content">
+                    <span class="item-label">Reduced Animations</span>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="animationsToggle" class="toggle-input">
+                    <label for="animationsToggle" class="toggle-label"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-card">
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#5D9CAE" stroke-width="2"/>
+                    <path d="M12 16V12M12 8H12.01" stroke="#5D9CAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="info-text">These settings help make the app more comfortable to use. Changes will apply across all pages.</p>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 21 20 22 19 22H5C4 22 3 21 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Home</span>
+            </a>
+
+            <a href="features.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Features</span>
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="2"/>
+                    <path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 1V4M12 20V23M4.22 4.22L6.34 6.34M17.66 17.66L19.78 19.78M1 12H4M20 12H23M4.22 19.78L6.34 17.66M17.66 6.34L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="accessibility-settings.js"></script>
+</body>
+</html>

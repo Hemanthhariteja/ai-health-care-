@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #FFB8B8 0%, #FFD0D0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.page-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #FFD0D0 0%, #FFC0C0 100%);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.back-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: #2C5571;
+}
+
+.back-btn:hover {
+    background: #f5f5f5;
+    transform: translateX(-4px);
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2C5571;
+}
+
+.sos-circle {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232, 125, 92, 0.4) 0%, rgba(232, 125, 92, 0) 70%);
+    animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.sos-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E87D5C 0%, #E6695C 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 40px rgba(232, 125, 92, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.sos-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 50px rgba(232, 125, 92, 0.6);
+}
+
+.sos-button:active {
+    transform: scale(0.98);
+}
+
+.sos-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+}
+
+.emergency-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+
+.help-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: #2C5571;
+    margin-bottom: 24px;
+}
+
+.footer-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5A7686;
+    position: absolute;
+    bottom: 40px;
+}
+
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.confirmation-modal.visible {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: white;
+    border-radius: 28px;
+    padding: 36px 32px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+    position: relative;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2C5571;
+    line-height: 1.4;
+    margin-bottom: 28px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 24px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #E87D5C 0%, #E6695C 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(232, 125, 92, 0.4);
+}
+
+.yes-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 125, 92, 0.5);
+}
+
+.cancel-btn {
+    background: linear-gradient(135deg, #A8CEDB 0%, #8DB8C9 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(168, 206, 219, 0.4);
+}
+
+.cancel-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 206, 219, 0.5);
+}
+
+.modal-status {
+    font-size: 15px;
+    color: #6B9F7F;
+    font-weight: 500;
+    display: none;
+}
+
+.modal-status.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.check-animation {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto 0;
+    display: none;
+}
+
+.check-animation.visible {
+    display: block;
+    animation: scaleIn 0.5s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.check-animation path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawCheck 0.8s ease 0.2s forwards;
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sos-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    .sos-button {
+        width: 170px;
+        height: 170px;
+    }
+
+    .sos-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .emergency-text {
+        font-size: 15px;
+    }
+
+    .help-text {
+        font-size: 16px;
+    }
+
+    .footer-text {
+        font-size: 14px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+}

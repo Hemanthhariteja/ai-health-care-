@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthFlow Dashboard">
+    <title>HealthFlow - Home</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Back Button -->
+        <header class="page-header">
+            <button class="back-btn" onclick="history.back()" aria-label="Go Back">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="page-header-title" data-i18n="home">Home</h1>
+        </header>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="profileAvatar">
+                <img class="profile-avatar-image" id="profileAvatarImage" style="display: none;" alt="Profile Picture">
+                <svg id="profileAvatarIcon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="#E8F1F5" stroke="#5D9CAE" stroke-width="2"/>
+                    <circle cx="50" cy="35" r="15" fill="#5D9CAE"/>
+                    <path d="M20 70C20 55 32 48 50 48C68 48 80 55 80 70" fill="#5D9CAE"/>
+                </svg>
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name" id="profileName">Welcome</h1>
+                <p class="profile-age" id="profileAge"></p>
+                <p class="profile-gender" id="profileGender"></p>
+            </div>
+            <div class="condition-badge" id="conditionBadge">Hypertension</div>
+        </div>
+
+        <!-- Daily Wellness Guide -->
+        <div class="wellness-section">
+            <h2 class="section-title">Daily Wellness Guide</h2>
+            
+            <div class="wellness-grid">
+                <!-- Breakfast Card -->
+                <div class="wellness-card breakfast-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 24C12 20 14 16 18 14C20 14 22 15 24 17C26 15 28 14 30 14C34 16 36 20 36 24" stroke="#2C5571" stroke-width="2" stroke-linecap="round"/>
+                            <ellipse cx="24" cy="28" rx="14" ry="8" stroke="#2C5571" stroke-width="2"/>
+                            <path d="M10 28H38" stroke="#2C5571" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Breakfast</h3>
+                        <p class="card-description">Oatmeal & nuts</p>
+                        <p class="card-portion">Moderate portion</p>
+                        <span class="card-badge">Suggested by AI</span>
+                    </div>
+                </div>
+
+                <!-- Lunch Card -->
+                <div class="wellness-card lunch-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="16" stroke="#2C5571" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="12" stroke="#2C5571" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="8" stroke="#2C5571" stroke-width="2"/>
+                            <line x1="24" y1="8" x2="24" y2="16" stroke="#2C5571" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lunch</h3>
+                        <p class="card-description">Lent soup with whole wheat bread</p>
+                        <p class="card-portion">Small portion</p>
+                        <span class="card-badge">Approved by Doctor</span>
+                    </div>
+                </div>
+
+                <!-- Evening Exercise Card -->
+                <div class="wellness-card exercise-card exercise-large">
+                    <div class="card-top-row">
+                        <div class="card-icon-large">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="12" r="4" fill="#8B5FA3"/>
+                                <path d="M24 16L24 28M20 22L28 22M20 28L24 34M28 28L24 34M24 34L24 38M20 38L28 38" stroke="#8B5FA3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="card-badge-top">Suggested by AI</div>
+                    </div>
+                    <div class="card-content-exercise">
+                        <h3 class="card-title-large">Evening Exercise</h3>
+                        <p class="card-description-main">20-min walk</p>
+                        <p class="card-meta">Low impact</p>
+                    </div>
+                </div>
+
+                <!-- Hydration Card -->
+                <div class="wellness-card hydration-card hydration-compact">
+                    <div class="card-header-row">
+                        <div class="card-icon-small">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 10L14 40H34L32 10H16Z" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M14 20H34" stroke="#FFFFFF" stroke-width="2"/>
+                                <ellipse cx="24" cy="30" rx="6" ry="4" fill="#FFFFFF" opacity="0.4"/>
+                            </svg>
+                        </div>
+                        <div class="card-info-column">
+                            <h3 class="card-title-small">Hydration</h3>
+                            <p class="card-description-small">Drink 8 glasses of water</p>
+                        </div>
+                    </div>
+                    <div class="card-footer-row">
+                        <p class="card-meta-small">All day</p>
+                        <span class="card-badge-bottom">Self-Guided</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating AI Assistant Button -->
+        <button class="ai-assistant-btn" onclick="location.href='ai-chat.html'" aria-label="AI Assistant">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="28" r="18" fill="white"/>
+                <circle cx="26" cy="26" r="3" fill="#9B8FB5"/>
+                <circle cx="38" cy="26" r="3" fill="#9B8FB5"/>
+                <path d="M26 34C26 34 28 36 32 36C36 36 38 34 38 34" stroke="#9B8FB5" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="32" cy="46" rx="16" ry="8" fill="white"/>
+                <path d="M32 10L30 16L32 18L34 16L32 10Z" fill="white"/>
+            </svg>
+        </button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-page="home.html" aria-label="Home">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-btn" onclick="location.href='features.html'" aria-label="Features">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="nav-label">Features</span>
+            </button>
+            <button class="nav-btn" data-page="profile.html" aria-label="Profile">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-label">Profile</span>
+            </button>
+            <button class="nav-btn" data-page="settings.html" aria-label="Settings">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="nav-label">Settings</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>

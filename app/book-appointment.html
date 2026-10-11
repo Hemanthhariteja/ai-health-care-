@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Appointment">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="book-appointment.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="back-btn" onclick="window.history.back()">
+                <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="header-title">Book Appointment</h1>
+        </header>
+
+        <main class="content">
+            <section class="section">
+                <h2 class="section-title">Select a Doctor</h2>
+                
+                <div class="doctors-list">
+                    <div class="doctor-card" data-doctor="Dr. Anya Sharma" data-specialty="General Physician" data-availability="Available Today">
+                        <div class="doctor-avatar doctor-avatar-1">
+                            <svg class="avatar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="24" r="12" fill="white"/>
+                                <path d="M12 52C12 42 20 36 32 36C44 36 52 42 52 52" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Anya Sharma</h3>
+                            <p class="doctor-specialty">General Physician</p>
+                            <span class="availability-badge available">Available Today</span>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="Dr. Ben Carter" data-specialty="Dermatologist" data-availability="Available Tomorrow">
+                        <div class="doctor-avatar doctor-avatar-2">
+                            <svg class="avatar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="24" r="12" fill="white"/>
+                                <path d="M12 52C12 42 20 36 32 36C44 36 52 42 52 52" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Ben Carter</h3>
+                            <p class="doctor-specialty">Dermatologist</p>
+                            <span class="availability-badge tomorrow">Available Tomorrow</span>
+                        </div>
+                    </div>
+
+                    <div class="doctor-card" data-doctor="Dr. Mei Ling" data-specialty="Cardiologist" data-availability="Not Available">
+                        <div class="doctor-avatar doctor-avatar-3">
+                            <svg class="avatar-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="24" r="12" fill="white"/>
+                                <path d="M12 52C12 42 20 36 32 36C44 36 52 42 52 52" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Mei Ling</h3>
+                            <p class="doctor-specialty">Cardiologist</p>
+                            <span class="availability-badge unavailable">Not Available</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="dateTimeSection" style="display: none;">
+                <h2 class="section-title">Select Date & Time</h2>
+                
+                <div class="date-picker">
+                    <input type="date" id="appointmentDate" class="date-input">
+                </div>
+
+                <div class="time-slots">
+                    <div class="time-slot" data-time="09:00 AM">09:00 AM</div>
+                    <div class="time-slot" data-time="10:00 AM">10:00 AM</div>
+                    <div class="time-slot" data-time="11:00 AM">11:00 AM</div>
+                    <div class="time-slot" data-time="12:00 PM">12:00 PM</div>
+                    <div class="time-slot unavailable" data-time="02:00 PM">02:00 PM</div>
+                    <div class="time-slot unavailable" data-time="03:00 PM">03:00 PM</div>
+                    <div class="time-slot" data-time="04:00 PM">04:00 PM</div>
+                    <div class="time-slot" data-time="05:00 PM">05:00 PM</div>
+                </div>
+            </section>
+
+            <section class="section" id="notesSection" style="display: none;">
+                <h2 class="section-title">Additional Notes (Optional)</h2>
+                <textarea id="appointmentNotes" class="notes-textarea" placeholder="Describe your symptoms or reason for visit..."></textarea>
+            </section>
+
+            <div class="selected-info" id="selectedInfo" style="display: none;">
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="info-text">
+                    <p class="info-doctor" id="infoDoctor"></p>
+                    <p class="info-datetime" id="infoDateTime"></p>
+                </div>
+            </div>
+
+            <button class="confirm-btn" id="confirmBtn" style="display: none;">Confirm Appointment</button>
+        </main>
+
+        <div class="confirmation-modal" id="confirmationModal">
+            <div class="modal-content">
+                <svg class="success-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="#6B9F7F" stroke-width="4" fill="white"/>
+                    <path class="check-path" d="M30 50L43 63L70 36" stroke="#6B9F7F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+                <h2 class="modal-title">Appointment Confirmed!</h2>
+                <p class="modal-description" id="modalDescription"></p>
+                
+                <button class="modal-btn" id="proceedToPayment">Proceed to Payment</button>
+                <button class="modal-btn secondary" onclick="window.location.href='home.html'">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="book-appointment.js"></script>
+</body>
+</html>
